@@ -1,0 +1,133 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-page-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(255, 255, 255);
+}
+
+.contact-logo img {
+  height: 80px;
+  width: 200px;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.contact-nav-links {
+  flex: 1;
+  text-align: right;
+  padding-right: 30px;
+}
+
+.contact-nav-links ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding-top: 50px;
+  padding-right: 30px;
+  position: relative;
+}
+
+.contact-nav-links ul li a {
+  color: #000066;
+  font-family: "Ubuntu Mono", monospace;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.contact-nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+  margin-top: 10px;
+}
+
+.contact-nav-links ul li:hover::after {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.contact-text-box {
+  height: auto; /* Adjust the height to accommodate both elements */
+  width: 100%;
+  color: #fff;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+}
+
+.contact-text-box h1 {
+  margin-top: 10px;
+  font-size: 53px;
+  color: #000066;
+  text-align: center;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+.contact-text-box h1::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+  margin-top: 5px;
+}
+
+.contact-text-box h1:hover::after {
+  width: 100%;
+}
+
+#contact-form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+}
+
+.contact-form-col input,
+.contact-form-col textarea {
+  width: 50%; 
+  padding: 15px;
+  margin-bottom: 23px;
+  outline: black;
+  outline-width: 2px;
+  border: 2px solid rgb(138, 137, 137);
+  text-align: left; 
+}
+
+
+.contact-hero-btn {
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  color: #000066;
+  border: 1px solid #000066;
+  padding: 12px 34px;
+  font-size: 18px;
+  font-weight: 5px;
+  font-family: "Ubuntu", sans-serif;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+
+.contact-hero-btn:hover {
+  border: 1px solid #b2244b;
+  background: #b2244b;
+  transition: 0.3s;
+  color: #ddd;
+}

@@ -1,0 +1,54 @@
+.welcome-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+  }
+  
+  .welcome-box {
+    text-align: center;
+    background: white;
+    padding: 43px; /* Increased further from 36px */
+    border-radius: 14px; /* Slight increase */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .welcome-heading {
+    font-size: 41px; /* Increased further from 34px */
+    color: #000066;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 28px; /* Increased further from 24px */
+  }
+  
+  .welcome-logo {
+    height: 144px; /* Increased further from 120px */
+    width: auto;
+    margin-bottom: 28px; /* Increased further from 24px */
+  }
+  
+  .user-email, .welcome-text {
+    font-size: 26px; /* Increased further from 22px */
+    color: #333;
+    margin-bottom: 14px; /* Increased further from 12px */
+  }
+  
+  .start-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background: #000066;
+    border: none;
+    padding: 14px 40px; /* Increased by 20% from 12px 34px */
+    font-size: 22px; /* Increased by 20% from 18px */
+    border-radius: 6px; /* Slightly increased */
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .start-btn:hover {
+    background: #b2244b;
+  }
+  

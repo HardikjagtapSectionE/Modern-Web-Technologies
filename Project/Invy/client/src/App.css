@@ -1,0 +1,280 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+/* Header */
+header {
+  background-color: #000066;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+header a:hover {
+  background-color: #b2244b;
+  border-radius: 5px;
+}
+
+/* Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background-color: #333;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin: 0 10px;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar ul li a:hover {
+  color: #b2244b;
+}
+
+/* HomePage */
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.homepage-container h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.homepage-container p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.hero-btn {
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #b2244b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.hero-btn:hover {
+  background-color: #9a1d40;
+}
+
+/* AboutPage */
+.about-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+.about-section h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.about-section .back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #333;
+  background-color: #ddd;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.about-section .back-btn:hover {
+  background-color: #b2244b;
+  color: white;
+}
+
+/* ContactPage */
+.contact-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.contact-section h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.contact-section .back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #333;
+  background-color: #ddd;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.contact-section .back-btn:hover {
+  background-color: #b2244b;
+  color: white;
+}
+
+/* LoginPage */
+.login-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.login-section h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.login-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-section input {
+  padding: 12px;
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-section button {
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #b2244b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.login-section button:hover {
+  background-color: #9a1d40;
+}
+
+/* SignupPage */
+.signup-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.signup-section h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.signup-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.signup-section input {
+  padding: 12px;
+  font-size: 18px;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.signup-section button {
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #b2244b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.signup-section button:hover {
+  background-color: #9a1d40;
+}
+
+/* WelcomePage */
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.welcome-section h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.welcome-section p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.welcome-section .home-btn {
+  padding: 12px 25px;
+  font-size: 18px;
+  background-color: #b2244b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.welcome-section .home-btn:hover {
+  background-color: #9a1d40;
+}

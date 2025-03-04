@@ -1,0 +1,201 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.about-logo img {
+  height: 80px;
+  width: 200px;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+
+.about-nav-links {
+  flex: 1;
+  text-align: right;
+  padding-right: 30px;
+}
+
+.about-nav-links ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding-top: 50px;
+  padding-right: 30px;
+}
+
+.about-nav-links ul li a {
+  color: #000066;
+  font-family: "Ubuntu Mono", monospace;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.about-nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+  margin-top: 10px;
+}
+
+.about-nav-links ul li:hover::after {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.about-text-box {
+  height: auto; /* Adjust the height to accommodate both elements */
+  width: 100%;
+  color: #fff;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+}
+
+.about-text-box h1 {
+  margin-top: 10px;
+  font-size: 53px;
+  color: #000066;
+  text-align: center;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+.about-text-box p {
+  font-size: 21px;
+  font-family: "Ubuntu", sans-serif;
+  color: #f44336;
+  margin-top: 15px;
+  text-align: center;
+  line-height: 35px;
+}
+
+.aboutus-paragraph {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.about-text-box h1::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+  margin-top: 5px;
+}
+
+.about-text-box h1:hover::after {
+  margin-top: 5px;
+  width: 100%;
+  
+}
+
+.about-text-box1 {
+  color: rgb(253, 253, 253);
+  margin-top: -10px;
+  align-content: center;
+}
+
+.about-text-box1 h1 {
+  font-size: 42px;
+  color: #000066;
+  text-align: center;
+  font-family: "Ubuntu Mono", monospace;
+}
+
+.about-text-box1 h1::after {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: #f44336;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+  margin-top: 7px;
+}
+
+.about-text-box1 h1:hover::after {
+  margin-top: 7px;
+  width: 22%;
+}
+
+.about-feature {
+  padding-top: 50px;
+}
+
+.about-cards {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.about-card {
+  margin: 20px;
+  margin-bottom: 30px;
+  padding: 20px;
+  width: 200px;
+  min-height: 250px;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s;
+}
+
+.about-card:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+.about-card-picture-section {
+  display: flex;
+  justify-content: center;
+}
+
+.about-card-picture img {
+  border-radius: 50px;
+  height: 85px;
+  width: 85px;
+}
+
+.about-card-title {
+  font-family: "Ubuntu Mono", monospace;
+  margin-top: 20px;
+  text-align: center;
+  color: #000066;
+}
+
+.about-card-title h4 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+}
+
+/* CARD BACKGROUNDS */
+.about-card-1 {
+  background: radial-gradient(#1fe4f5, #3fbafe);
+}
+
+.about-card-2 {
+  background: radial-gradient(#f5b7b1, #f44336);
+}
+
+.about-card-3 {
+  background: radial-gradient(#ffcccb, #f44336);
+}
+
+.about-card-4 {
+  background: radial-gradient(#d1e7f2, #5bc0de);
+}
+
+@media (max-width: 1600px) {
+  .about-cards {
+    justify-content: center;
+  }
+}
