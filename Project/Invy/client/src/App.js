@@ -8,6 +8,7 @@ import Login from "./pages/authentication/Login";
 import Signup from "./pages/authentication/Signup";
 import Contact from "./pages/authentication/Contact";
 import Welcome from "./pages/authentication/Welcome";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Welcome" element={<Welcome />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
 
       </Routes>
     </Router>

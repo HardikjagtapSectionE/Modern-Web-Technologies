@@ -1,18 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./Welcome.css";
 
 const WelcomePage = () => {
-  useEffect(() => {
-    const preventBack = () => {
-      window.history.forward();
-    };
-    setTimeout(preventBack, 0);
-    window.onunload = () => null;
-  }, []);
+  const navigate = useNavigate(); // Initialize navigate function
 
   const handleStart = () => {
-    console.log("Let's get started");
-    // Navigate to the next page or perform another action
+    navigate("../dashboard/Dashboard"); // Navigate to Dashboard page
   };
 
   return (
