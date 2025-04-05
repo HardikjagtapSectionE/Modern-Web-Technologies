@@ -5,26 +5,26 @@
   font-family: "Poppins", sans-serif;
 }
 
-.home-section {
+.home-page {
   width: 100%;
   min-height: 100vh;
   background-color: rgb(255, 255, 255);
 }
 
-.home-logo img {
+.home-page-logo img {
   height: 80px;
   width: 200px;
   margin-top: 30px;
   margin-left: 50px;
 }
 
-.home-nav-links {
+.home-page-nav-links {
   flex: 1;
   text-align: right;
   padding-right: 30px;
 }
 
-.home-nav-links ul li {
+.home-page-nav-links ul li {
   list-style-type: none;
   display: inline-block;
   padding-top: 50px;
@@ -32,14 +32,14 @@
   position: relative;
 }
 
-.home-nav-links ul li a {
+.home-page-nav-links ul li a {
   color: #000066;
   font-family: "Ubuntu Mono", monospace;
   text-decoration: none;
   font-size: 24px;
 }
 
-.home-nav-links ul li::after {
+.home-page-nav-links ul li::after {
   content: "";
   width: 0%;
   height: 3px;
@@ -50,12 +50,12 @@
   margin-top: 10px;
 }
 
-.home-nav-links ul li:hover::after {
+.home-page-nav-links ul li:hover::after {
   margin-top: 10px;
   width: 100%;
 }
 
-.home-text-box {
+.home-page-text-box {
   width: 90%;
   color: #fff;
   position: absolute;
@@ -65,21 +65,21 @@
   text-align: center;
 }
 
-.home-text-box h1 {
+.home-page-text-box h1 {
   font-size: 72px;
   padding-bottom: 20px;
   color: #000066;
   font-family: "Ubuntu Mono", monospace;
 }
 
-.home-text-box p {
-  margin: px 0 0px;
+.home-page-text-box p {
+  margin: 0px 0 0px;
   font-size: 24px;
   font-family: "Ubuntu", sans-serif;
   color: #b2244b;
 }
 
-.hero-btn {
+.hero-button {
   display: inline-block;
   margin-top: 30px;
   text-decoration: none;
@@ -93,7 +93,7 @@
   cursor: pointer;
 }
 
-.hero-btn:hover {
+.hero-button:hover {
   border: 1px solid #b2244b;
   background: #b2244b;
   transition: 0.3s;
@@ -101,7 +101,7 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .home-section {
-      width: 100%;
+  .home-page {
+    width: 100%;
   }
 }

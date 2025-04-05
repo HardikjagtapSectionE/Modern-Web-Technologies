@@ -14,7 +14,7 @@ const Signup = () => {
   const validateEmail = (email) => /^[^@]+@\w+(\.\w+)+\w$/.test(email);
   const validatePassword = (password) => password.length >= 6;
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     if (!fullName.trim()) {
       alert("Please enter your full name.");
       return;
@@ -27,9 +27,26 @@ const Signup = () => {
       alert("Password must be at least 6 characters.");
       return;
     }
-    alert("Signup Successful! (Backend logic to be added)");
-    navigate("/welcome");
+  
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ fullName, email, password }),
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+        alert("Signup Successful!");
+        navigate("/login");
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error("Signup Error:", error);
+    }
   };
+  
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

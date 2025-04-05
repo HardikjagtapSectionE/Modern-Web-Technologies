@@ -10,10 +10,10 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const validateEmail = (email) => /^[^@]+@\w+(\.\w+)+\w$/.test(email);
+  const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const validatePassword = (password) => password.length >= 6;
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!validateEmail(email)) {
       alert("Invalid email format.");
       return;
@@ -22,12 +22,31 @@ const Login = () => {
       alert("Password must be at least 6 characters.");
       return;
     }
-    alert("Login Successful! (Backend logic to be added)");
-    navigate("/welcome"); // Redirect after successful validation
+  
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+  
+      const data = await response.json();
+      if (response.ok) {
+        localStorage.setItem("token", data.token);
+        alert("Login Successful!");
+        navigate("/welcome");
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error("Login Error:", error);
+    }
   };
+  
+  
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+    setShowPassword((prev) => !prev);
   };
 
   return (
@@ -52,20 +71,27 @@ const Login = () => {
           </div>
           <div id="login-form-content-container">
             <div id="login-form-content-inner-container">
-            <div className="input-container">
-              <FontAwesomeIcon icon={faEnvelope} className="input-icon" />
-              <input type="email" placeholder="Enter your email" />
-            </div>
+              <div className="input-container">
+                <FontAwesomeIcon icon={faEnvelope} className="input-icon" />
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)} 
+                />
+              </div>
               <div className="input-container password-container">
-              <FontAwesomeIcon icon={faLock} className="input-icon" />
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="Enter your password"
-              />
-                 <i
-                className={`fa ${showPassword ? "fa-eye-slash" : "fa-eye"} password-toggle`}
-                onClick={togglePasswordVisibility}
-              ></i>
+                <FontAwesomeIcon icon={faLock} className="input-icon" />
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <i
+                  className={`fa ${showPassword ? "fa-eye-slash" : "fa-eye"} password-toggle`}
+                  onClick={togglePasswordVisibility}
+                ></i>
               </div>
 
               <div id="login-button-container">
@@ -74,7 +100,7 @@ const Login = () => {
 
               <div className="login-forgot">
                 <p>
-                  <a href="#">Forgot password?</a>
+                  <a href=" ">Forgot password?</a>
                 </p>
               </div>
 
@@ -84,7 +110,7 @@ const Login = () => {
 
               <div className="login-icon">
                 <button>
-                <img src="/images/signin.png" alt="Invy Logo" />
+                  <img src="/images/signin.png" alt="Sign in" />
                 </button>
               </div>
 

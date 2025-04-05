@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    font-family: system-ui;
+  }
+  
+  .logo {
+    margin-top: 10px;
+    margin-left: 35px;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: "Ubuntu Mono", monospace;
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+  
+  .logo span {
+    color: #f7403b;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #3b3b44;
+    padding-top: 30px;
+    transition: width 0.5s;
+  }
+  
+  .sidenav.collapsed {
+    width: 60px;
+  }
+  
+  .sidenav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #cf3939;
+    background-color: #3636a1;
+  }
+  
+  #main {
+    margin-left: 300px;
+    padding: 16px;
+    transition: margin-left 0.5s;
+  }
+  
+  #main.collapsed {
+    margin-left: 80px;
+  }
+  
+  .head {
+    padding: 20px;
+    font-size: 30px;
+    color: #3b3b44;
+  }
+  
+  .profile-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .profile-card {
+    background-image: url('../../../public/images/profile-bg.avif'); /* Replace with your image path */
+    background-size: cover; /* Ensure the image covers the entire card */
+    background-position: center; /* Center the image */
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    width: 450px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+  }
+  
+  .file-input {
+    margin-top: 30px;
+    color: #3b3b44;
+    font-weight: bold;
+    text-align: center;
+    display: block; /* Makes the input block-level so it can be centered */
+    margin-left: auto; /* Centers horizontally */
+    margin-right: auto; /* Centers horizontally */
+    width: 53%; /* You can adjust the width as needed */
+  }
+  
+  
+  .upload-button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background: #2661eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 60%;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+  
+  .profile-maincontent {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    width: 500px;
+    height: 550px;
+  }
+  
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    
+  }
+  
+  .profile-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #eef5f9;
+    border: 2px solid #3498db;
+  }
+  
+  .save-button {
+    margin-top: 10px;
+    padding: 12px 20px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 6px;
+  }

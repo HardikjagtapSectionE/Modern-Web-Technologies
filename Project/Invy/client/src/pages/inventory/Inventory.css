@@ -1,0 +1,236 @@
+/* Sidebar */
+.sidenav {
+    height: 100%;
+    width: 280px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #3b3b44;
+    padding-top: 30px;
+    transition: width 0.5s;
+}
+
+.sidenav.collapsed {
+    width: 60px;
+}
+
+.sidenav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #cf3939;
+    background-color: #3636a1;
+}
+
+/* Main content */
+#main {
+    margin-left: 300px;
+    padding: 16px;
+    transition: margin-left 0.5s;
+}
+
+#main.collapsed {
+    margin-left: 80px;
+}
+
+/* Sidebar Heading */
+.head {
+    padding: 20px;
+    font-size: 30px;
+    color: #3b3b44;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Inventory Box */
+.inventory-main-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+/* Search Bar (Input and Button) in One Line */
+.inventory-search {
+    position: relative; /* Position the wrapper relatively for absolute positioning of the icon */
+    display: flex;
+    align-items: center;
+    width: 30%;
+  }
+  
+  .inventory-search input {
+    width: 100%;
+    padding: 10px 30px 10px 10px; /* Add padding on the right side to make space for the icon */
+    border-radius: 5px;
+    border: 2px solid #ccc;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .inventory-search input:focus {
+    border-color: #2661eb;
+    outline: none;
+  }
+  
+  .inventory-srchbtn {
+    position: absolute; /* Position the icon inside the input field */
+    right: 10px; /* Align it to the right side */
+    background-color: transparent;
+    border: none;
+    color: #f7403b;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+
+/* Buttons and Controls */
+.inventory-button {
+    background-color: #3b3b44;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.inventory-button:hover {
+    background-color: #2661eb;
+}
+
+.inventory-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.inventory-list th, .inventory-list td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.inventory-list th {
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+.inventory-list tr:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Popup for Insert Data */
+/* Popup Background Overlay */
+#inventory-overlay {
+    display: none; /* Hidden by default, shown when popup is triggered */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    z-index: 1000; /* Ensure the overlay is above the rest of the content */
+}
+
+/* Popup Box */
+#inventory-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the popup */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Fixed width */
+    z-index: 1001; /* Ensure the popup is above the overlay */
+    max-width: 100%; /* Ensure it fits on small screens */
+    box-sizing: border-box;
+}
+
+/* Popup Close Button */
+/* Styling for Popup Form */
+/* General Styling for Inputs inside Popup */
+#inventory-popup input[type="text"], 
+#inventory-popup input[type="number"], 
+#inventory-popup input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 2px solid #ccc; /* Add a border to the input boxes */
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Input Focus Styling inside Popup */
+#inventory-popup input[type="text"]:focus, 
+#inventory-popup input[type="number"]:focus, 
+#inventory-popup input[type="date"]:focus {
+  border-color: #2661eb; /* Highlight border color when focused */
+  outline: none;
+}
+
+/* Styling for Labels in Popup */
+.inventory-popup-content label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Popup Submit Button Styling */
+.inventory-form-action-buttons {
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    align-items: center; /* Aligns the button vertically */
+    width: 100%; /* Ensures the container takes full width */
+    margin-top: 20px; /* Adds spacing from the elements above */
+  }
+  
+  /* Styling for the Submit Button */
+  .inventory-form-action-buttons button {
+    background-color: #2661eb;
+    width: 50%; /* Button takes 50% of the container width */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+.inventory-form-action-buttons button:hover {
+  background-color: #3b3b44;
+}
+  
+  .inventory-popup-controls {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .inventory-popup-controls span {
+    font-size: 30px;
+    cursor: pointer;
+  }
+  
+  .inventory-popup-controls span:hover {
+    color: #f7403b;
+  }
+  
+  /* Styling for Popup Close (X) Button */
+  .inventory-popup-controls span:hover {
+    color: #f7403b;
+  }

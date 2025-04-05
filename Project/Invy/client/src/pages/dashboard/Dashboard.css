@@ -1,97 +1,142 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    font-family: system-ui;
-    overflow-y: scroll;
-  }
-  
-  .sidenav {
-    height: 100%;
-    width: 280px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #3b3b44;
-    transition: 0.5s;
-    padding-top: 30px;
-  }
-  
-  .sidenav a {
-    padding: 15px 8px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #ffffff;
-    display: block;
-    transition: 0.3s;
-  }
-  
-  .sidenav a:hover {
-    color: #cf3939;
-    background-color: #3636a1;
-  }
-  
-  #main {
-    transition: margin-left 0.5s;
-    padding: 16px;
-    margin-left: 300px;
-  }
-  
-  .head {
-    padding: 20px;
-  }
-  
-  .nav {
-    font-size: 30px;
-    cursor: pointer;
-    color: #3b3b44;
-  }
-  
-  .box {
-    display: inline-block;
-    margin: 10px;
-    background-color: rgb(131, 198, 224);
-    border-radius: 10px;
-    width: 300px;
-    height: 100px;
-    font-weight: bold;
-    box-shadow: 5px 5px 5px rgb(157, 151, 212);
-    color: #000066;
-    font-family: "Ubuntu", sans-serif;
-    padding-top: 10px;
-  }
-  
-  .box-topic {
-    font-size: 18px;
-    margin: 10px;
-  }
-  
-  .number {
-    font-size: 28px;
-    margin: 10px;
-  }
-  
-  #cart {
-    font-size: 36px;
-    float: right;
-    margin: 15px;
-  }
-  
-  .welcome-container {
-    text-align: center;
-    padding: 50px;
-  }
-  
-  .welcome-container button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #3b3b44;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .welcome-container button:hover {
-    background-color: #f7403b;
-  }
-  
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  font-family: system-ui;
+  overflow-y: scroll;
+}
+.logo{
+  margin-top: 10px;
+  margin-left: 35px;
+  font-weight: bold;
+  font-size: 50px;
+  font-family: "Ubuntu Mono", monospace;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+.logo span{
+  color: #f7403b;
+  margin-right: 5px;
+}
+
+.sidenav {
+height: 120%;
+width: 280px;
+position: fixed;
+padding-left: 0px;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: #3b3b44;
+overflow: hidden;
+transition: 0.5s;
+padding-top: 30px;
+}
+.sidenav a {
+padding: 15px 8px 15px 32px;
+text-decoration: none;
+font-size: 20px;
+color: #ffffff;
+display: block;
+transition: 0.3s;
+}
+.sidenav a:hover {
+color: #cf3939;
+background-color:#3636a1;
+}
+.sidenav{
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+}
+
+#main {
+  transition: margin-left 0.5s;
+  padding: 16px;
+  margin-left: 300px;
+}
+
+.head {
+  padding: 20px;
+}
+
+.nav {
+  font-size: 30px;
+  cursor: pointer;
+  color: #3b3b44;
+}
+.home-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.overview-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px;
+  background-color: rgb(131, 198, 224);
+  border-radius: 10px;
+  width: 315px;
+  height: 100px;
+  font-weight: bold;
+  box-shadow: 5px 5px 5px rgb(157, 151, 212);
+  color: #000066;
+  font-family: "Ubuntu", sans-serif;
+  padding: 15px;
+}
+
+#chartContainer {
+  margin-top: 30px;
+}
+
+.box-content {
+  flex-grow: 1;
+}
+
+.box-topic {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.number {
+  font-size: 26px;
+}
+
+.icon {
+  font-size: 72px;
+  color: #000066;
+  position: absolute;
+  right: 25px;
+}
+.overview-boxes .fa {
+  font-size: 40px; 
+  margin-right: 10px;
+  margin-top: -10px;
+}
+
+.welcome-container {
+  text-align: center;
+  padding: 50px;
+}
+
+.welcome-container button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #3b3b44;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.welcome-container button:hover {
+  background-color: #f7403b;
+}
