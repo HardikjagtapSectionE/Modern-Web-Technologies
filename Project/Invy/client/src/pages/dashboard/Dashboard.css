@@ -75,14 +75,15 @@ font-size: 36px;
 .overview-boxes {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-end; /* aligns boxes from right */
+  flex-direction: row-reverse; /* forces right-to-left flow */
+  gap: 20px; /* consistent spacing between cards */
 }
 
 .box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 12px;
   background-color: rgb(131, 198, 224);
   border-radius: 10px;
   width: 315px;
@@ -92,7 +93,9 @@ font-size: 36px;
   color: #000066;
   font-family: "Ubuntu", sans-serif;
   padding: 15px;
+  position: relative; /* ensure icon aligns properly */
 }
+
 
 #chartContainer {
   margin-top: 30px;

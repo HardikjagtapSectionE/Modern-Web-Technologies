@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import "font-awesome/css/font-awesome.min.css";
 import "./Staff.css";
@@ -10,81 +11,96 @@ const Staff = () => {
     sname: '',
     sattnd: '',
   });
-  const [selectedRow, setSelectedRow] = useState(null);
+  const [selectedId, setSelectedId] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  const [isSidebarExpanded, setSidebarExpanded] = useState(true); // Added state for sidebar
+  const [isSidebarExpanded, setSidebarExpanded] = useState(true);
+
+  const token = localStorage.getItem("token");
 
   // Toggle sidebar
   const toggleSidebar = () => {
     setSidebarExpanded(!isSidebarExpanded);
   };
 
-  // Handle form data change
+  // Load staff from backend
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/staff", {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    .then((res) => setStaffData(res.data))
+    .catch((err) => console.error("Error loading staff:", err));
+  }, [token]);
+
+  // Handle form input
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData({
-      ...formData,
-      [id]: value,
-    });
+    setFormData({ ...formData, [id]: value });
   };
 
-  // Handle search query change
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-  };
+  // Handle search
+  const handleSearch = (e) => setSearchQuery(e.target.value);
 
-  // Filtered staff data based on search
-  const filteredStaffData = staffData.filter((item) =>
+  // Filter staff data
+  const filteredStaffData = staffData.filter(item =>
     item.sname.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    item.sid.toString().includes(searchQuery)  // Convert sid to string for comparison
+    item.sid.toString().includes(searchQuery)
   );
 
-  // Handle form submission
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // Handle submit (add/update)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    // If staff ID is not provided, generate one
-    if (!formData.sid) {
-      formData.sid = Date.now();  // Generate unique ID if not provided
+    try {
+      if (selectedId) {
+        // Update staff
+        await axios.put(`http://localhost:5000/api/staff/${selectedId}`, formData, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+      } else {
+        // Create staff
+        await axios.post("http://localhost:5000/api/staff", formData, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+      }
+
+      // Refresh data
+      const res = await axios.get("http://localhost:5000/api/staff", {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      setStaffData(res.data);
+      resetForm();
+      document.getElementById('staff-overlay').style.display = 'none';
+    } catch (err) {
+      console.error("Error saving staff:", err);
+      alert("Failed to save staff");
     }
-
-    if (selectedRow) {
-      // If editing, update the staff data
-      setStaffData(
-        staffData.map((item) =>
-          item.sid === selectedRow.sid ? { ...formData } : item
-        )
-      );
-    } else {
-      // If adding new, add the staff data
-      setStaffData([...staffData, { ...formData }]);
-    }
-
-    resetForm();
   };
 
-  // Reset the form
+  // Reset form
   const resetForm = () => {
-    setFormData({
-      sid: '',
-      sname: '',
-      sattnd: '',
-    });
-    setSelectedRow(null);
+    setFormData({ sid: '', sname: '', sattnd: '' });
+    setSelectedId(null);
   };
 
-  // Handle editing of a staff member
-  const onEdit = (sid) => {
-    const item = staffData.find((item) => item.sid === sid);
-    setFormData(item);  // Pre-fill the form with the existing data
-    setSelectedRow(item); // Mark the row as selected for editing
-    document.getElementById('staff-overlay').style.display = 'block'; // Open the modal for editing
+  // Edit staff
+  const onEdit = (staff) => {
+    setFormData(staff);
+    setSelectedId(staff._id);
+    document.getElementById('staff-overlay').style.display = 'block';
   };
 
-  // Handle deletion of a staff member
-  const onDelete = (sid) => {
-    if (window.confirm('Are you sure to delete this record?')) {
-      setStaffData(staffData.filter((item) => item.sid !== sid));
+  // Delete staff
+  const onDelete = async (_id) => {
+    if (window.confirm("Are you sure you want to delete this record?")) {
+      try {
+        await axios.delete(`http://localhost:5000/api/staff/${_id}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setStaffData(staffData.filter(item => item._id !== _id));
+      } catch (err) {
+        console.error("Error deleting staff:", err);
+        alert("Failed to delete staff");
+      }
     }
   };
 
@@ -106,7 +122,7 @@ const Staff = () => {
         </div>
 
         <div className="staff-main-content">
-          {/* Staff Search and Insert Button in One Line */}
+          {/* Search + Insert */}
           <div className="staff-search-container">
             <div className="staff-search">
               <input
@@ -128,61 +144,50 @@ const Staff = () => {
             </button>
           </div>
 
-          {/* Popup for Insert or Edit Data */}
+          {/* Popup Modal */}
           <div id="staff-overlay" style={{ display: 'none' }}>
             <div id="staff-popup">
               <div className="staff-popup-controls">
-                <span
-                  id="staff-popupclose"
-                  onClick={() => (document.getElementById('staff-overlay').style.display = 'none')}
-                >
+                <span onClick={() => document.getElementById('staff-overlay').style.display = 'none'}>
                   &times;
                 </span>
               </div>
               <div className="staff-popup-content">
                 <form onSubmit={handleSubmit} autoComplete="off">
-                  <div>
-                    <label>Staff ID</label><br />
-                    <input
-                      type="text"
-                      id="sid"
-                      value={formData.sid}
-                      onChange={handleChange}
-                      required
-                      disabled={selectedRow !== null} // Disable ID field when editing
-                    />
-                  </div>
-                  <div>
-                    <label>Staff Name</label><br />
-                    <input
-                      type="text"
-                      id="sname"
-                      value={formData.sname}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label>Staff Attendance</label><br />
-                    <input
-                      type="datetime-local"
-                      id="sattnd"
-                      value={formData.sattnd}
-                      onChange={handleChange}
-                      required
-                    />
-                  </div>
+                  <label>Staff ID</label>
+                  <input
+                    type="text"
+                    id="sid"
+                    value={formData.sid}
+                    onChange={handleChange}
+                    required
+                    disabled={selectedId !== null}
+                  />
+                  <label>Staff Name</label>
+                  <input
+                    type="text"
+                    id="sname"
+                    value={formData.sname}
+                    onChange={handleChange}
+                    required
+                  />
+                  <label>Staff Attendance</label>
+                  <input
+                    type="datetime-local"
+                    id="sattnd"
+                    value={formData.sattnd}
+                    onChange={handleChange}
+                    required
+                  />
                   <div className="staff-form-action-buttons">
-                    <button type="submit">
-                      {selectedRow ? 'Update' : 'Submit'}
-                    </button>
+                    <button type="submit">{selectedId ? "Update" : "Submit"}</button>
                   </div>
                 </form>
               </div>
             </div>
           </div>
 
-          {/* Staff Table */}
+          {/* Table */}
           <table className="staff-list" id="staff-ItemList">
             <thead>
               <tr>
@@ -193,14 +198,14 @@ const Staff = () => {
               </tr>
             </thead>
             <tbody>
-              {filteredStaffData.map((item) => (
-                <tr key={item.sid}>
+            {[...filteredStaffData].sort((a, b) => a.sid.localeCompare(b.sid)).map((item) => (
+                <tr key={item._id}>
                   <td>{item.sid}</td>
                   <td>{item.sname}</td>
                   <td>{item.sattnd}</td>
                   <td>
-                    <a href="#!" onClick={() => onEdit(item.sid)}>Edit</a> / 
-                    <a href="#!" onClick={() => onDelete(item.sid)}>Delete</a>
+                    <a href="#!" onClick={() => onEdit(item)}>Edit</a> /
+                    <a href="#!" onClick={() => onDelete(item._id)}>Delete</a>
                   </td>
                 </tr>
               ))}

@@ -193,28 +193,29 @@
 
 /* Popup Submit Button Styling */
 .inventory-form-action-buttons {
-    display: flex;
-    justify-content: center; /* Centers the button horizontally */
-    align-items: center; /* Aligns the button vertically */
-    width: 100%; /* Ensures the container takes full width */
-    margin-top: 20px; /* Adds spacing from the elements above */
-  }
-  
-  /* Styling for the Submit Button */
-  .inventory-form-action-buttons button {
-    background-color: #2661eb;
-    width: 50%; /* Button takes 50% of the container width */
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-  }
-
-.inventory-form-action-buttons button:hover {
-  background-color: #3b3b44;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  width: 100%;
 }
+
+#inventory-add {
+  background-color: #3b3b44;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#inventory-add:hover {
+  background-color: #2661eb;
+}
+
+
   
   .inventory-popup-controls {
     display: flex;
